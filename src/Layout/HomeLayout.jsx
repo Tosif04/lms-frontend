@@ -51,7 +51,7 @@ function HomeLayout({ children }) {
         </div>
         <div className="drawer-side w-0">
           <label htmlFor="my-drawer" className="drawer-overplay"></label>
-          <ul className="menu p-4 w-48 sm:w-80 bg-base-100 text-base-content relative">
+          <ul className="menu p-4 w-48 h-[100%] sm:w-80 bg-base-200 text-base-content relative">
             <li className="w-fit absolute right-2 z-50">
               <button onClick={hideDrawer}>
                 <AiFillCloseCircle size={24} />
@@ -77,7 +77,8 @@ function HomeLayout({ children }) {
             </li>
 
             {!isLoggedIn && (
-              <div className="w-full flex items-center justify-center gap-4 py-4">
+              <li className="absolute bottom-3 w-[90%]">
+              <div className="w-full flex items-center justify-center gap-4">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 font-semibold rounded-md w-full text-center">
                   <Link to="/login">Login</Link>
                 </button>
@@ -85,10 +86,12 @@ function HomeLayout({ children }) {
                   <Link to="/signup">SignUp</Link>
                 </button>
               </div>
+              </li>
             )} 
 
              {isLoggedIn && (
-              <div className="w-full flex items-center justify-center gap-4 py-4">
+              <li className="absolute bottom-3 w-[90%]">
+              <div className="w-full flex items-center justify-center gap-4">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 font-semibold rounded-md w-full text-center">
                   <Link to="/user/profile">User Profile</Link>
                 </button>
@@ -96,6 +99,7 @@ function HomeLayout({ children }) {
                   <Link onClick={handleLogout()}>Logout</Link>
                 </button>
               </div>
+              </li>
             )}
 
           </ul>
